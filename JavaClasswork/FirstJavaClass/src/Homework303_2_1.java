@@ -1,4 +1,6 @@
 public class Homework303_2_1 {
+    static final double SALES_TAX = 0.045;
+}
     public class Main {
         public static void main(String[] args) {
             // Program 1: Adding two integers
@@ -57,7 +59,10 @@ public class Homework303_2_1 {
             int resultAsInt = (int) resultDoubleDiv2;
             // Print out the result
             System.out.println("Result after casting to an integer: " + resultAsInt);
+
+
+
         }
-    }
+
 
 }

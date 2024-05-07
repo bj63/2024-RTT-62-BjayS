@@ -117,6 +117,138 @@ public class Hospital {
         s.Surgeon_Details();
     }
 }
+public class Task1 {
+    public static void main(String[] args) {
+        int[] array = new int[3];
+        array[0] = 1;
+        array[1] = 2;
+        array[2] = 3;
+
+        for (int i = 0; i < array.length; i++) {
+            System.out.println("Element at index " + i + ": " + array[i]);
+        }
+    }
+}
+public class Task2 {
+    public static void main(String[] args) {
+        int[] array = {13, 5, 7, 68, 2};
+        int middleIndex = array.length / 2;
+        System.out.println("Middle element: " + array[middleIndex]);
+    }
+}
+import java.util.Arrays;
+
+public class Task3 {
+    public static void main(String[] args) {
+        String[] colors = {"red", "green", "blue", "yellow"};
+        System.out.println("Original array length: " + colors.length);
+
+        String[] copy = colors.clone();
+        System.out.println("Copy of array: " + Arrays.toString(copy));
+    }
+}
+public class Task4 {
+    public static void main(String[] args) {
+        int[] myArray = {1, 2, 3, 4, 5};
+
+        System.out.println("First element: " + myArray[0]);
+        System.out.println("Last element: " + myArray[myArray.length - 1]);
+
+        // Uncomment the line below to produce an ArrayIndexOutOfBoundsException
+        // System.out.println("Out of bounds index: " + myArray[myArray.length]);
+
+        // Uncomment the line below to produce an ArrayIndexOutOfBoundsException
+        // myArray[5] = 6;
+    }
+}
+public class Task5 {
+    public static void main(String[] args) {
+        int[] array = new int[5];
+
+        for (int i = 0; i < array.length; i++) {
+            array[i] = i;
+        }
+
+        System.out.println(Arrays.toString(array));
+    }
+}
+public class Task6 {
+    public static void main(String[] args) {
+        int[] array = new int[5];
+
+        for (int i = 0; i < array.length; i++) {
+            array[i] = i * 2;
+        }
+
+        System.out.println(Arrays.toString(array));
+    }
+}
+public class Task7 {
+    public static void main(String[] args) {
+        int[] array = {1, 2, 3, 4, 5};
+
+        for (int i = 0; i < array.length; i++) {
+            if (i != array.length / 2) {
+                System.out.println("Element at index " + i + ": " + array[i]);
+            }
+        }
+    }
+}
+public class Task8 {
+    public static void main(String[] args) {
+        String[] array = {"One", "Two", "Three", "Four", "Five"};
+
+        // Swap the first element with the middle element
+        String temp = array[0];
+        array[0] = array[array.length / 2];
+        array[array.length / 2] = temp;
+
+        System.out.println(Arrays.toString(array));
+    }
+}
+import java.util.Arrays;
+
+public class Task9 {
+    public static void main(String[] args) {
+        int[] array = {4, 2, 9, 13, 1, 0};
+        Arrays.sort(array);
+
+        System.out.println("Array in ascending order: " + Arrays.toString(array));
+        System.out.println("The smallest number is " + array[0]);
+        System.out.println("The biggest number is " + array[array.length - 1]);
+    }
+}
+public class Task10 {
+    public static void main(String[] args) {
+        Object[] array = {1, "Hello", "World", "Java", 3.14};
+        System.out.println(Arrays.toString(array));
+    }
+}
+import java.util.Scanner;
+
+public class Task11 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("How many favorite things do you have? ");
+        int numFavorites = scanner.nextInt();
+        scanner.nextLine(); // Consume newline
+
+        String[] favorites = new String[numFavorites];
+
+        for (int i = 0; i < numFavorites; i++) {
+            System.out.print("Enter your thing: ");
+            favorites[i] = scanner.nextLine();
+        }
+
+        System.out.println("Your favorite things are: ");
+        for (String favorite : favorites) {
+            System.out.print(favorite + " ");
+        }
+
+        scanner.close();
+    }
+}
 
 
 

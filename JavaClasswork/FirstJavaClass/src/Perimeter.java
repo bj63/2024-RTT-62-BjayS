@@ -1,2 +1,4 @@
-package PACKAGE_NAME;public interface Perimeter {
+public interface Perimeter {
+
+    public double calculatePerimeter();
 }

@@ -1,7 +1,11 @@
 package org.example.database.dao;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+import java.util.List;
 
 @Setter
 @Getter
@@ -9,19 +13,27 @@ import lombok.*;
 @ToString
 @Table(name = "employees")
 public class Employee {
-    @Id // this is telling hibernate this column is the PK
-    @GeneratedValue(strategy = GenerationType.IDENTITY)  // this telling hibernate that the PK is auto increment
+
+
+    @Id // this tells hibernate that this column is the PK
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // this tells hibernate that the column is autoincremented
     @Column(name = "id")
     private Integer id;
+
+    //this essentially a customerDAO.findByEmployeeId(123)
+    // select c.* from customers c, employees e where c.sales_rep+employee_id = e.id and c.sales_rep_employee_id = <123>
+    @ToString.Exclude
+    @OneToMany(mappedBy = "employee", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Customers> customers;
 
     @Column(name = "office_id")
     private Integer officeId;
 
     @Column(name = "lastname")
-    private String lastname;
+    private String lastName;
 
     @Column(name = "firstname")
-    private String firstname;
+    private String firstName;
 
     @Column(name = "extension")
     private String extension;
@@ -40,4 +52,7 @@ public class Employee {
 
     @Column(name = "profile_image_url")
     private String profileImageUrl;
+
+    // lombok
+
 }

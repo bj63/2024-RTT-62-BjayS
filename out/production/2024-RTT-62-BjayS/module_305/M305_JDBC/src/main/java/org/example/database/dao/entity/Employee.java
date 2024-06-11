@@ -1,4 +1,4 @@
-package org.example;
+package org.example.database.dao.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -35,4 +35,7 @@ public class Employee {
 
     @Column (name = "profile_image_url")
     private String profileImageUrl;
+
+    public void setExtension(String number) {
+    }
 }

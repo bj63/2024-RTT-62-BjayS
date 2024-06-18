@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="blog.css">
+</head>
+<body>
+  <header>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+    var teamLink = document.querySelector('nav ul li:nth-child(2) a');
+    var scheduleLink = document.querySelector('nav ul li:nth-child(3) a');
+    var newsLink = document.querySelector('nav ul li:nth-child(4) a');
+
+    teamLink.addEventListener('click', function(event) {
+      event.preventDefault();
+      var teamSection = document.getElementById('team');
+      if (teamSection) {
+        var offsetTop = teamSection.offsetTop;
+        window.scrollTo({
+          top: offsetTop,
+          behavior: 'smooth'
+        });
+      }
+    });
+
+    scheduleLink.addEventListener('click', function(event) {
+      event.preventDefault();
+      var scheduleSection = document.getElementById('schedule');
+      if (scheduleSection) {
+        var offsetTop = scheduleSection.offsetTop;
+        window.scrollTo({
+          top: offsetTop,
+          behavior: 'smooth'
+        });
+      }
+    });
+
+    newsLink.addEventListener('click', function(event) {
+      event.preventDefault();
+      var newsSection = document.getElementById('news');
+      if (newsSection) {
+        var offsetTop = newsSection.offsetTop;
+        window.scrollTo({
+          top: offsetTop,
+          behavior: 'smooth'
+        });
+      }
+    });
+  }); 
+     </script> 
+    <h1>LSU Tigers Football 2019 Blog</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Team</a></li>
+        <li><a href="#">Schedule</a></li>
+        <li><a href="#">News</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="team" class="team-section">
+      <h2>The 2019 LSU Tigers Football Team</h2>
+      <p>In the fall of 2019, the LSU Tigers embarked on a journey that would forever be etched in the annals of college football history. Led by their charismatic and talented quarterback, Joe Burrow, the team showcased a brand of football that captivated fans and defied all expectations.</p>
+
+<p>The season began with a resounding victory over Georgia Southern, setting the tone for what was to come. As the weeks unfolded, LSU faced formidable opponents such as Texas, Florida, and Alabama, each victory solidifying their place among the nation's elite. The Tigers displayed an explosive offense, scoring points at a record pace, while their defense stood strong, stifling opposing teams and securing crucial stops.</p>
+
+<p>In the midst of their triumphs, LSU's journey was not without challenges. They encountered close contests and nail-biting moments, but time and time again, they demonstrated resilience and an unwavering belief in their abilities. Each victory further fueled their determination to achieve greatness.</p>
+
+<p>The team's success was not solely attributed to individual brilliance but to a collective effort. Wide receiver Ja'Marr Chase's acrobatic catches and running back Clyde Edwards-Helaire's versatility provided a dynamic offensive attack. On the defensive side, safety Grant Delpit and cornerback Derrick Stingley Jr. showcased their exceptional skills, anchoring a unit that thrived under pressure.</p>
+
+<p>The accolades poured in for LSU. Joe Burrow's extraordinary performances earned him the prestigious Heisman Trophy, symbolizing his outstanding contribution to the sport. The coaching staff, led by head coach Ed Orgeron and offensive mastermind Joe Brady, was recognized for their innovative and high-powered offensive schemes.</p>
+
+<p>As the regular season came to a close, LSU stood undefeated, earning their place in the SEC Championship Game. Facing off against Georgia, they delivered a commanding performance, securing the conference title and cementing their spot in the College Football Playoff.</p>
+
+<p>In the semifinal game, LSU clashed with Oklahoma in the Peach Bowl. In a display of offensive brilliance, they overwhelmed their opponents, punching their ticket to the National Championship Game. The stage was set for a clash against Clemson, the defending champions.</p>
+
+<p>On January 13, 2020, in New Orleans, Louisiana, LSU and Clemson battled for the ultimate prize. The game was a fitting culmination of a remarkable season. LSU's offense continued to shine, while their defense stood firm, ultimately prevailing with a convincing victory. LSU was crowned the National Champions, etching their name in the record books.</p>
+
+<p>The 2019 LSU football season was a story of perseverance, determination, and extraordinary talent. It showcased the power of teamwork, the brilliance of individuals, and the unwavering belief in achieving greatness. The team's achievements will forever be remembered as one of the most remarkable seasons in college football history, leaving an indelible mark on the LSU Tigers' rich legacy.</p>
+
+
+      <!-- Team information and content here -->
+      
+    </section>
+
+    <section  id="schedule" class="schedule-section">
+      <h2>Season Schedule</h2>
+      <div class="schedule-grid">
+        <!-- Schedule information and content here -->
+        <table>
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Opponent</th>
+                <th>Location</th>
+                <th>Result</th>
+                <th>Details</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>August 31</td>
+                <td>Georgia Southern</td>
+                <td>LSU</td>
+                <td>W 55-3</td>
+                <td>LSU dominated the game, setting the tone for the season.</td>
+              </tr>
+              <tr>
+                <td>September 7</td>
+                <td>Texas</td>
+                <td>Austin, TX</td>
+                <td>W 45-38</td>
+                <td>LSU secured a hard-fought victory against a formidable opponent.</td>
+              </tr>
+              <tr>
+                <td>September 14</td>
+                <td>Northwestern State</td>
+                <td>LSU</td>
+                <td>W 65-14</td>
+                <td>LSU showcased their offensive prowess with a dominant win.</td>
+              </tr>
+              <tr>
+                <td>September 21</td>
+                <td>Vanderbilt</td>
+                <td>Nashville, TN</td>
+                <td>W 66-38</td>
+                <td>LSU's explosive offense overwhelmed Vanderbilt's defense.</td>
+              </tr>
+              <tr>
+                <td>October 5</td>
+                <td>Utah State</td>
+                <td>LSU</td>
+                <td>W 42-6</td>
+                <td>LSU's defense stifled Utah State, securing a comfortable victory.</td>
+              </tr>
+              <tr>
+                <td>October 12</td>
+                <td>Florida</td>
+                <td>LSU</td>
+                <td>W 42-28</td>
+                <td>LSU emerged victorious in a highly anticipated matchup.</td>
+              </tr>
+              <tr>
+                <td>October 19</td>
+                <td>Mississippi State</td>
+                <td>LSU</td>
+                <td>W 36-13</td>
+                <td>LSU's offense and defense both excelled in a convincing win.</td>
+              </tr>
+              <tr>
+                <td>October 26</td>
+                <td>Auburn</td>
+                <td>Baton Rouge, LA</td>
+                <td>W 23-20</td>
+                <td>LSU triumphed in a thrilling matchup against a tough opponent.</td>
+              </tr>
+              <tr>
+                <td>November 9</td>
+                <td>Alabama</td>
+                <td>Tuscaloosa, AL</td>
+                <td>W 46-41</td>
+                <td>LSU secured a historic victory against their arch-rivals.</td>
+              </tr>
+              <tr>
+                <td>November 16</td>
+                <td>Ole Miss</td>
+                <td>Oxford, MS</td>
+                <td>W 58-37</td>
+                <td>LSU's high-powered offense overwhelmed Ole Miss.</td>
+              </tr>
+        
+              <tr>
+                <td>November 23</td>
+                <td>Arkansas</td>
+                <td>LSU</td>
+                <td>W 56-20</td>
+                <td>LSU dominated Arkansas with a dominant offensive performance.</td>
+              </tr>
+              <tr>
+                <td>November 30</td>
+                <td>Texas A&amp;M</td>
+                <td>LSU</td>
+                <td>W 50-7</td>
+                <td>LSU's offense and defense were firing on all cylinders in a resounding victory.</td>
+              </tr>
+              <tr>
+                <td>December 7</td>
+                <td>Georgia (SEC Championship Game)</td>
+                <td>Atlanta, GA</td>
+                <td>W 37-10</td>
+                <td>LSU asserted their dominance with a decisive win, securing the SEC Championship.</td>
+              </tr>
+              <tr>
+                <td>December 28</td>
+                <td>Oklahoma (Peach Bowl - College Football Playoff Semifinal)</td>
+                <td>Atlanta, GA</td>
+                <td>W 63-28</td>
+                <td>LSU's explosive offense overwhelmed Oklahoma, advancing to the National Championship.</td>
+              </tr>
+              <tr>
+                <td>January 13, 2020</td>
+                <td>Clemson (National Championship Game)</td>
+                <td>New Orleans, LA</td>
+                <td>W 42-25</td>
+                <td>LSU completed a remarkable season by winning the National Championship.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+      </div>
+    </section>
+
+    <section section id="news" class="news-section">
+      <h2>Latest News</h2>
+      <div class="news-grid">
+        <!-- News articles and content here -->
+        <article class="article-box">
+            <h3>Joe Burrow Wins Heisman Trophy</h3>
+            <p>LSU quarterback Joe Burrow was awarded the prestigious Heisman Trophy for his exceptional performance throughout the season. Burrow set numerous records and led the Tigers to an outstanding year.</p>
+          </article>
+          <article class="article-box">
+            <h3>Ja'Marr Chase Receives Biletnikoff Award</h3>
+            <p>Wide receiver Ja'Marr Chase was honored with the Biletnikoff Award, recognizing him as the top receiver in college football. Chase's incredible catches and playmaking abilities were instrumental to LSU's success.</p>
+          </article>
+          <article class="article-box" >
+            <h3>Grant Delpit Named Jim Thorpe Award Winner</h3>
+            <p>Safety Grant Delpit was named the recipient of the Jim Thorpe Award, presented to the best defensive back in college football. Delpit's exceptional skills and leadership anchored the Tigers' defense.</p>
+          </article>
+          <article class="article-box" >
+            <h3>Clyde Edwards-Helaire Named SEC Offensive Player of the Year</h3>
+            <p>Running back Clyde Edwards-Helaire was honored as the SEC Offensive Player of the Year for his outstanding contributions to the LSU offense. Edwards-Helaire showcased his versatility and reliability throughout the season.</p>
+          </article>
+          <article class="article-box" >
+            <h3>Joe Brady Wins Broyles Award</h3>
+            <p>LSU's passing game coordinator Joe Brady was awarded the Broyles Award, recognizing him as the top assistant coach in college football. Brady's innovative offensive schemes revolutionized LSU's attack.</p>
+          </article>
+          <article class="article-box">
+            <h3>Derrick Stingley Jr. Named SEC Freshman of the Year</h3>
+            <p>Cornerback Derrick Stingley Jr. was recognized as the SEC Freshman of the Year for his exceptional play and impact on the LSU defense. Stingley's skills and maturity exceeded expectations for a first-year player.</p>
+          </article>
+          <article class="article-box" >
+            <h3>LSU Sets New SEC Offensive Records</h3>
+            <p>The LSU Tigers broke multiple SEC offensive records during the 2019 season. The team's high-powered offense, led by Joe Burrow, shattered records for passing yards, total yards, and points scored.</p>
+          </article>
+          <article class="article-box" >
+            <h3>LSU Finishes the Season Undefeated</h3>
+            <p>With a perfect 15-0 record, the LSU Tigers completed an unforgettable season, capping it off with a National Championship win. The team's historic achievement will be remembered for years to come.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+    
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2019 LSU Tigers Football Blog. All rights reserved.</p>
+  </footer>
+  
+</body>
+</html>

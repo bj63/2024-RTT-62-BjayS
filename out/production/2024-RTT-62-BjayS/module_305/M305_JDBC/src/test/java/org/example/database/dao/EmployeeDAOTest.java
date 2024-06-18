@@ -64,7 +64,7 @@ public class EmployeeDAOTest {
 
         //given
 
-        Employee given = new Employee();
+        org.example.database.dao.Employee given = new org.example.database.dao.Employee();
 
         given.setOfficeId(2);
         given.setLastName("lastName");
@@ -78,7 +78,7 @@ public class EmployeeDAOTest {
 
         //then
 
-        Employee actual = EmployeeDAO.findById(given.getId());
+        org.example.database.dao.Employee actual = EmployeeDAO.findById(given.getId());
 
         Assertions.assertEquals(given.getFirstName(),
                 actual.getFirstName());

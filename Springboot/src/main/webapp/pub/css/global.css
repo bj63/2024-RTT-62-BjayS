@@ -1,0 +1,103 @@
+.page-title {
+font-color: blue;
+font-size: 24px;
+font-weight: bold;
+}
+/* General body styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('https://lh3.googleusercontent.com/gg/AJIvXivccjNUA1VgYx5Ap2mIIPG5D1lvAlh-5rH-TITQ-BD1ON-ZhoGYUIB221zm8Jwp8Api7wfTpkFbfOO1Q9yZC9_acjGm4tMiqYvnpETg43wDmaCJC09Y1srEf1khJOUFG05hOOgNUzhF77pQrb1-zJG4ReXRpbTNNdDgenSJyAUJAmFDCVYxvz4yqp0RhI7xik_YyPOg-2FLzB0HT2udktGt46cyYs_t3AT4dnpnjBAiokLft1AN14VNGHG_x-XNgW6-YZatR00tMUSzrTlm1EXgpiFNbBy-M5bTG3EhDMapH-zMHIeHVB4Oz3qoESceX_Ff2bh1LCw3yiVaRNFYIPQ') no-repeat center center fixed;
+    background-size: cover;
+    color: #343a40;
+}
+
+/* Page header styling */
+header {
+    background: #343a40;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+/* Section styling */
+section {
+    padding: 2rem 0;
+}
+
+section h1, section h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+/* Container styling */
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* Table styling */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+}
+
+.table th, .table td {
+    border: 1px solid #dee2e6;
+    padding: 0.75rem;
+    text-align: left;
+}
+
+.table th {
+    background: #343a40;
+    color: #fff;
+}
+
+/* Form styling */
+form {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 0.25rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+form .form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+form .form-control {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+}
+
+form .btn {
+    background: #007bff;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
+
+form .btn:hover {
+    background: #0056b3;
+}
+
+/* Footer styling */
+footer {
+    background: #343a40;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
+

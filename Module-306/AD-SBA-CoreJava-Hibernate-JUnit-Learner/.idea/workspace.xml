@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AIAssistantCustomInstructionsStorage">
+    <option name="instructions">
+      <map>
+        <entry key="AIAssistant.VCS.GenerateCommitMessage">
+          <value>
+            <AIAssistantStoredInstruction>
+              <option name="actionId" value="AIAssistant.VCS.GenerateCommitMessage" />
+              <option name="content" value="fix code to run&#10;    " />
+            </AIAssistantStoredInstruction>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="762d3b4f-4156-4235-aef1-f505191006f8" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/dao/CourseI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dao/StudentI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sba/sms/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sba/sms/models/Course.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sba/sms/models/Student.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sba/sms/services/CourseService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sba/sms/services/StudentService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sba/sms/utils/CommandLine.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sba/sms/utils/HibernateUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Hibernate.cfg.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/org/hibernate/dialect/MySQLDialect.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/sba/Services/StudentServiceTest.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="com.intellij.jpb.NewClass" />
+        <option value="com.intellij.jpb.JpaEntity" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main/java/sba/sms/utils/HibernateUtil.java" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="JpbToolWindowState">
+    <option name="isToolWindowVisible" value="false" />
+  </component>
+  <component name="LLMProjectSettings">
+    <option name="turned_on" value="false" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2i7nqk5j1wDIEI5svLHWsLNfR0I" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.App (1).executor": "Run",
+    "Application.App.executor": "Run",
+    "Application.CommandLine.executor": "Run",
+    "Application.Main.executor": "Run",
+    "Application.Student.executor": "Run",
+    "Application.StudentService.executor": "Run",
+    "Application.sba.sms.App.executor": "Run",
+    "JUnit.StudentServiceTest (1).executor": "Run",
+    "JUnit.StudentServiceTest (2).executor": "Run",
+    "JUnit.StudentServiceTest.createStudentTest.executor": "Debug",
+    "JUnit.StudentServiceTest.executor": "Run",
+    "JUnit.StudentServiceTest.findStudentByEmailTest.executor": "Run",
+    "JUnit.StudentServiceTest.testCreateStudent.executor": "Run",
+    "JUnit.StudentServiceTest.testGetAllStudents.executor": "Run",
+    "JUnit.StudentServiceTest.testGetStudentByEmail.executor": "Run",
+    "JUnit.StudentServiceTest.testRegisterStudentToCourse.executor": "Run",
+    "JUnit.StudentServiceTest.testValidateStudent.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "a33cf024",
+    "ignore.preview.features.used": "true",
+    "kotlin-language-version-configured": "true",
+    "last_directory_selection": "/Users/shameka/2024-RTT-62-BjayS/Module-306/AD-SBA-CoreJava-Hibernate-JUnit-Learner/src/main/java/sba/sms",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "/Users/shameka/2024-RTT-62-BjayS/Module-306/AD-SBA-CoreJava-Hibernate-JUnit-Learner/src/main/java/org/example/Main.java",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "com.intellij.repository",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="sba.sms.models" />
+    </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="sba.sms.models" />
+      <recent name="dao" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="sba.sms" />
+      <recent name="sba.sms.models" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.StudentServiceTest (2)">
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <module />
+      <method />
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <method />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="sba.sms.App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="sba.sms.App" />
+      <module name="AD-SBA-CoreJava-Hibernate-JUnit-Learner" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="sba.sms.*" />
+          <option name="ENABLED" value="false" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StudentServiceTest (2)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="AD-SBA-CoreJava-Hibernate-JUnit-Learner" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="sba.Services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="sba.Services" />
+      <option name="MAIN_CLASS_NAME" value="sba.Services.StudentServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StudentServiceTest.createStudentTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="AD-SBA-CoreJava-Hibernate-JUnit-Learner" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="sba.Services.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="sba.Services" />
+      <option name="MAIN_CLASS_NAME" value="sba.Services.StudentServiceTest" />
+      <option name="METHOD_NAME" value="createStudentTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="TestNG">
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.App" />
+      <item itemvalue="Application.sba.sms.App" />
+      <item itemvalue="JUnit.StudentServiceTest (2)" />
+      <item itemvalue="JUnit.StudentServiceTest.createStudentTest" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.StudentServiceTest (2)" />
+        <item itemvalue="JUnit.StudentServiceTest.createStudentTest" />
+        <item itemvalue="Application.sba.sms.App" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.15989.150" />
+        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-IU-241.15989.150" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="762d3b4f-4156-4235-aef1-f505191006f8" name="Changes" comment="" />
+      <created>1718850679942</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1718850679942</updated>
+      <workItem from="1718850682040" duration="7680000" />
+      <workItem from="1718864998243" duration="35705000" />
+      <workItem from="1718907417020" duration="484000" />
+      <workItem from="1718908590673" duration="25227000" />
+      <workItem from="1718983776533" duration="336000" />
+      <workItem from="1718985021729" duration="83377000" />
+      <workItem from="1719251226189" duration="35118000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/example/Main.java</url>
+          <line>14</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/sba/sms/App.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/sba/sms/App.java</url>
+          <line>38</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-field">
+          <url>file://$PROJECT_DIR$/src/main/java/sba/sms/App.java</url>
+          <line>33</line>
+          <properties field="studentService" class="sba.sms.App" />
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/sba/sms/App.java</url>
+          <line>36</line>
+          <properties class="sba.sms.App" method="main">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

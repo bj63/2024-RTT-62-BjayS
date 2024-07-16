@@ -1,10 +1,12 @@
-package org.example.database.dao.entity;
-
+package com.example.Springboot.database.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.query.Page;
+
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -13,7 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 @Table(name = "orders")
-public class Orders {
+public class Order {
 
 
     @Id
@@ -24,11 +26,11 @@ public class Orders {
     @ToString.Exclude
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "customer_id", nullable = false)
-    private Customers customer;
+    private Customer customer;
 
     @ToString.Exclude
-    @OneToMany(mappedBy = "orders", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<OrderDetails> orderDetails;
+    @OneToMany(mappedBy = "order", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<OrderDetail> orderDetails;
 
 
     @Column(name = "customer_id", insertable = false, updatable = false)
@@ -48,9 +50,4 @@ public class Orders {
     @Column(name = "comments",columnDefinition = "Text")
     private String comment;
 
-    @ManyToOne
-    @JoinColumn(name = "customers_id")
-    private Customers customers;
-
 }
-

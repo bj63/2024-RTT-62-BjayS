@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // this a comment in javascript
+        // the substring function works
+        // remember to use the first position as 0
+        // l position is 9
+        let a = "Hello world"
+        console.log(a.substring(4, 7));
+        console.log("Last index of l: " + a.lastindexof("l"))
+
+
+        // what is z going to print
+        // watxh for the "because that is a string and will not evaluate the math"
+        let x = 5;
+        let y = 6;
+        let z = ("x*y");
+        let  b= x*y;
+
+
+        console.log(z);
+
+        // the difference between == and ===
+        // kba and important
+        // === compares not only the value but also the datatype
+
+        console.log("1" == 1); //true
+        console.log("1" == "1");//true
+        console.log( 1 == 1);//true
+        console.log("1" === 1);//false
+        console.log(1 === 1);//true
+
+        //one difference between let and var is you can only define something 
+        // using let once in the same code block, with var it will allow more than one
+        // using let is
+        let abc = "123";
+        abc = "something else";
+        //let abc = "abc123";
+        // var will allow more than once in the same code block
+        // this is bad practice to do this
+        var wyz = "123";
+        wyz = "something else";
+        console.log(wyz);    
+
+        // how to make an alert box in javascript
+        // this can be nice for debugging
+        // alert("Some message to pop up");
+
+        // JavaScript is a weekly typed language meaning a variable can be of any type and that type can change
+        // Java is a strongly typed language meaning a variable must be of a certain type and can not change
+        // * Javascript is a high level scripting language that is weekly typed
+
+        //* False! External javascript files can contain html
+        // in javascript we can concatinate strings using the + operator
+        // this the same as Java
+        let str = "Hello" + "World";
+        console.log(str);
+
+        // in javascript creating a date is very felxible
+        // Java is very strict
+        //* kba will be true
+        let date1 = new Date("Thu Jam 29 2009 17:34:45GMT-0500 (EST)");
+        let date2 = new Date("2009-05-29");
+        // getMonth will return the month as a number 0 not 1
+        console.log("Month: " + date1.getMonth());
+        console.log("Month: " + date2.getMonth());
+        console.log(date1.getMonth() == date2.getMonth());
+
+        // in javascripy continue works the same asmit does in java
+        // this is the same kind of foor loop as java
+        // also break works the same as it does in java
+        for (let i = 0; i < 10; i++) {
+            if (i == 5) {
+                continue;
+                //break;
+            }
+            console.log(i);
+        }
+        // onclick element
+        //True statement: javascript is safe in that the browser will not allow
+        // direct asscess to the memory or cpu
+
+        // very common gotcha - this is an every day important thing to know
+        let trick = 8 + "8";
+        console.log(trick); // answer is 88
+
+        // getElementByTagName--finds elements in the document by their html tag
+        // for example find all of the p tags
+        // getElementsByClassName--  finds all elements with the css class name
+        // getElementsById-- finds an element by id=" attribute
+        // we kmow this will return an single element because the id is unique id 
+        // querySelector-- finds an element in the document by css query
+        // you can not subtract strings from a string
+        // it is not causing an error
+        // NaN means.... Not a Number
+        let q = "Hello" - "World";
+        console.log(q);
+
+        //for loops
+     let person = {
+            firstName : "Berwick",
+            lastName : "Smith",
+            eyeColor : "brown"
+        } ; for (let i in person)
+         {console.log(i + ": " + person[i]);
+         }
+
+         let arr = [1, 2, 3, 4, 5];
+         for (let i = 0; i < arr.length; i++) {
+             console.log(arr[i]);
+         }
+        
+         // 2 WAYS OF REGISTERING EVENT LISTENERS
+         // FIRST IS USING THE ONCLICK=" FUNCTION() ON A HTML TAG
+         // SECOND IS USING THE ADDEVENTLISTENER FUNCTION
+         // TO USE THE ADDEVENTLISTENER FUNCTION FIRST YOU HAVE TO QUERY THE ELEMENT FROM THE DOCUMENT
+        //THEN YOU CAN ADD THE EVENT LISTENER (CLICK) TO THE ELEMENT
+        // FunctionToRun());
+
+        // one question the shortest awnser the right answer
+        
+        //* True- Array.splice() will change the original array whereas Array.slice() will not
+        // 308.4 slide #28 talks about creating elements in an array
+        //document.createElement('p'); this will create a new paragraph in the document
+        //creatTextNode // this only works for text nodes like a p tag
+
+        // javascript trivia about numbers is on the kba
+        // number datatype in javascript is either an interger or a float
+
+
+        // Array.splice() will not change the original array
+        // The second parameter is the index where the splice will start
+        // The third parameter is the number of elements to remove
+        // The fourth parameter is the elements to add
+        // Array.splice(1, 1, "Hello", "World");
+        
+        //for each method is called for each element in an array
+        //index 0 1 2 3 4 5
+        let Array = [1, 2, 3, 4, 5,];
+        arr.forEach(function(value, index, array) {
+            console.log("value: " + value);
+            console.log("index: " + index);
+            console.log(array[index]);
+        }); 
+        // (Empty string) "",0,false,
+        // Javascript autobpxes 0 to false and 1 or greater is true
+        // in the filter function using only a single variable in the function we are just getting the value in a
+        // variable callled x
+        // the filter function will return a new array with the elements that return true
+        // if return false it will not be in the new array
+        // however!!!!! 0 is another way of represeing false
+        // soooo when x % 5 is 0 it will not be in the new array
+            console.log("filter var x = " + x); 
+                 arr.filter(function(x) {
+   // when this evaluates to true it will be in the new array
+            // it does not alter the original array it creates a new array and removes the elements that return false
+            return x % 5; 
+        });
+        //* 1, 4, 9, 16, 25, 36, 49, 64, 81, 100
+        //console.log(arr);
+        
+        </script>
+        <h1>This is a test</h1>
+</body>
+</html>

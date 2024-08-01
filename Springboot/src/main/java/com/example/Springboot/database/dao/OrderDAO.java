@@ -8,7 +8,6 @@ import java.util.List;
 
     @Repository
     public interface OrderDAO extends JpaRepository<Order, Integer> {
-        List<Order> findByCustomerId(Integer customerId);
     }
 
 

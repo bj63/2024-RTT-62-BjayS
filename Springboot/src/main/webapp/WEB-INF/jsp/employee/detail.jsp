@@ -2,7 +2,7 @@
 
 <jsp:include page="../include/header.jsp"/>
 
-<h1 class="page-title">This is an employee detail page</h1>
+<h1 class="page-title">Employee Detail Page</h1>
 
 <section>
     <div class="row pt-5">
@@ -18,7 +18,7 @@
             </tr>
             <tr>
                 <td style="font-weight: bolder;">Office ID:</td>
-                <td>${employee.officeId}</td>
+                <td>${employee.office.city}</td>
             </tr>
             <tr>
                 <td style="font-weight: bolder;">Full Name:</td>
@@ -37,14 +37,12 @@
                 <td>${employee.jobTitle}</td>
             </tr>
             <tr>
-                <td style="font-weight: bolder;">Vacation Hrs:</td>
+                <td style="font-weight: bolder;">Vacation Hours:</td>
                 <td>${employee.vacationHours}</td>
             </tr>
         </table>
     </div>
-
 </section>
-
 
 <section>
     <div class="container">
@@ -55,14 +53,15 @@
         </div>
         <div class="row pt-3">
             <div class="col-12">
-                <table class="table">
+                <table class="table table-striped table-bordered table-responsive" style="width: 750pt">
                     <tr>
-                        <th>id</th>
-                        <th>name</th>
+                        <th>ID</th>
+                        <th>Name</th>
                         <th>Contact Name</th>
-                        <th>state</th>
-                        <th>postal</th>
-                        <th>country</th>
+                        <th>State</th>
+                        <th>Postal Code</th>
+                        <th>Country</th>
+                        <th>Details</th>
                     </tr>
                     <c:forEach items="${customers}" var="customer">
                         <tr>
@@ -72,6 +71,7 @@
                             <td>${customer.state}</td>
                             <td>${customer.postalCode}</td>
                             <td>${customer.country}</td>
+                            <td><a href="/customer/details?id=${customer.id}" class="btn btn-primary">View Details</a></td>
                         </tr>
                     </c:forEach>
                 </table>
@@ -79,6 +79,5 @@
         </div>
     </div>
 </section>
-
 
 <jsp:include page="../include/footer.jsp"/>

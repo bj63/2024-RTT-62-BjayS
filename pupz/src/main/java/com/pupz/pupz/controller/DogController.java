@@ -1,80 +1,130 @@
 package com.pupz.pupz.controller;
 
+import com.pupz.pupz.database.dao.BreedDAO;
 import com.pupz.pupz.database.dao.DogDAO;
+import com.pupz.pupz.database.dao.OwnerDAO;
 import com.pupz.pupz.database.dao.UserDAO;
+import com.pupz.pupz.database.entity.Breed;
 import com.pupz.pupz.database.entity.Dog;
+import com.pupz.pupz.database.entity.Owner;
 import com.pupz.pupz.database.entity.User;
 import com.pupz.pupz.form.CreateDogFormBean;
+import com.pupz.pupz.service.DogService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import jakarta.annotation.PostConstruct;
 import jakarta.validation.Valid;
 import java.util.List;
 
+@Slf4j
 @Controller
 @RequestMapping("/dog")
 public class DogController {
 
     @Autowired
-    private DogDAO dogDAO;
+    private DogDAO dogDao;
 
     @Autowired
     private UserDAO userDAO;
 
-    @GetMapping("/index")
-    public ModelAndView index() {
-        ModelAndView response = new ModelAndView("dog/index");
-        List<Dog> dogs = dogDAO.findAll();
-        response.addObject("dogs", dogs);
+    @Autowired
+    private DogService dogService;
+    @Autowired
+    private OwnerDAO ownerDAO;
+    @Autowired
+    private BreedDAO breedDAO;
+
+
+    @GetMapping("/detail")
+    public ModelAndView detail(@RequestParam Integer dogId) {
+        ModelAndView response = new ModelAndView("dog/detail");
+
+        Dog dog = dogDao.findById(dogId);
+        response.addObject("dog", dog);
+
+        // Add any other necessary details
+
         return response;
     }
 
     @GetMapping("/create")
     public ModelAndView create() {
         ModelAndView response = new ModelAndView("dog/create");
-        response.addObject("form", new CreateDogFormBean());
-        List<User> users = userDAO.findAll();
-        response.addObject("users", users);
+        loadDropdowns(response);
         return response;
     }
 
-    @PostMapping("/create")
+    private void loadDropdowns(ModelAndView response) {
+        // Load any necessary dropdown data
+        // For example:
+        List<Owner> owners = ownerDAO.findAll();
+        List<Breed> breeds = breedDAO.findAll ();
+        response.addObject("owners", owners);
+        response.addObject("breeds", breeds);
+    }
+
+    @RequestMapping(value = "/edit", method = RequestMethod.GET)
+    public ModelAndView edit(@RequestParam(required = false) Integer dogId) {
+        ModelAndView response = new ModelAndView("dog/create");
+
+        loadDropdowns(response);
+
+        if (dogId != null) {
+            Dog dog = dogDao.findById(dogId);
+            if (dog != null) {
+                CreateDogFormBean form = new CreateDogFormBean();
+                form.setId(dog.getId());
+                form.setName(dog.getName());
+                form.setDescription(dog.getDescription());
+                form.setImageUrl(dog.getImageUrl());
+                form.setVaccinated(dog.isVaccinated());
+                form.setPrice(dog.getBuyPrice());
+                form.setGender(dog.getGender());
+                form.setAge(dog.getAge());
+                form.setBreedId(dog.getBreed().getId());
+                form.setOwnerId(dog.getOwner().getId());
+
+                response.addObject("form", form);
+            } else {
+                response.addObject("errorMessage", "The dog was not found in the database.");
+            }
+        }
+
+        return response;
+    }
+
+    @RequestMapping(value = "/createSubmit", method = {RequestMethod.POST, RequestMethod.GET})
     public ModelAndView createSubmit(@Valid CreateDogFormBean form, BindingResult bindingResult) {
+        ModelAndView response = new ModelAndView();
+
+        if (form.getId() == null) {
+            Dog d = dogDao.findByNameIgnoreCase(form.getName());
+            if (d != null) {
+                bindingResult.rejectValue("name", "name", "This dog name is already in use.");
+            }
+        }
+
         if (bindingResult.hasErrors()) {
-            ModelAndView response = new ModelAndView("dog/create");
+            for (ObjectError error : bindingResult.getAllErrors()) {
+                log.debug("Validation error : " + ((FieldError) error).getField() + " = " + error.getDefaultMessage());
+            }
+
+            response.addObject("bindingResult", bindingResult);
+            loadDropdowns(response);
+            response.setViewName("dog/create");
             response.addObject("form", form);
-            List<User> users = userDAO.findAll();
-            response.addObject("users", users);
+            return response;
+        } else {
+            Dog dog = dogService.createOrUpdateDog(form);
+            response.setViewName("redirect:/dog/detail?dogId=" + dog.getId());
             return response;
         }
-
-        Dog dog = new Dog();
-        dog.setName(form.getName());
-        dog.setAge(form.getAge());
-        dog.setGender(form.getGender());
-        dog.setDescription(form.getDescription());
-        dog.setImageUrl(form.getImageUrl());
-
-        User user = userDAO.findById(form.getUserId()).orElse(null);
-        dog.setUser(user);
-
-        dogDAO.save(dog);
-
-        return new ModelAndView("redirect:/dog/detail?id=" + dog.getId());
-    }
-
-    @GetMapping("/detail")
-    public ModelAndView detail(@RequestParam Long id) {
-        ModelAndView response = new ModelAndView("dog/detail");
-        Dog dog = dogDAO.findById(id).orElse(null);
-        if (dog == null) {
-            response.setViewName("redirect:/dog/index");
-        } else {
-            response.addObject("dog", dog);
-        }
-        return response;
     }
 }

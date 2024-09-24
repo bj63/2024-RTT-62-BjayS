@@ -1,43 +1,57 @@
 package com.pupz.pupz.database.entity;
-import jakarta.persistence.*;
-import lombok.*;
 
-@Setter
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+
 @Getter
-@ToString
-@NoArgsConstructor
-@AllArgsConstructor
+@Setter
 @Entity
-@Table(name = "dog")
+@Table(name = "dogs")
 public class Dog {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "id")
+    private Integer id;
 
-    @Column(nullable = false, length = 100)
+    @Column(name = "buy_price", columnDefinition = "DECIMAL")
+    private Double buyPrice;
+
+    @Column(name = "dog_name", nullable = false)
     private String name;
 
-    @Column(nullable = false)
-    private int age;
+    @ManyToOne
+    @JoinColumn(name = "breed_id", nullable = false)
+    private Breed breed;
 
-    @Column(nullable = false)
+
+    @Column(name = "dog_age", nullable = false)
+    private Integer age;
+
+
+    @Column (name = "dog_gender", nullable = false)
     private String gender;
 
 
-    @Column(length = 255)
+
+    @Column (name = "dog_description", columnDefinition = "TEXT")
     private String description;
 
-    @Column(length = 255)
+    @Column (name = "image_url")
     private String imageUrl;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "breed_id", nullable = false) // Use 'breed_id' for the foreign key
-    private Breed breed;
+    @Column (name = "is_vaccinated")
+    private boolean isVaccinated;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", nullable = false) // Ensure the user reference is also correct
-    private User user;
 
-    // Remove or update any unnecessary methods
+
+    @ManyToOne
+    @JoinColumn(name = "owner_id")
+    private Owner owner;
+
+
+
 }

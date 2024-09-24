@@ -1,36 +1,41 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dog Details</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/pub/css/global.css" rel="stylesheet">
-</head>
-<body>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <jsp:include page="../include/header.jsp" />
 
-<div class="container">
-    <h1 class="text-center my-4">Dog Details</h1>
-    <div class="card">
-        <img src="${dog.imageUrl}" class="card-img-top" alt="Dog Image">
-        <div class="card-body">
-            <h5 class="card-title">${dog.name}</h5>
-            <p class="card-text">Age: ${dog.age}</p>
-            <p class="card-text">Gender: ${dog.gender}</p>
-            <p class="card-text">Description: ${dog.description}</p>
-            <p class="card-text">Owner: ${dog.user.username}</p>
+<section class="bg-light py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow-sm">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="${dog.imageUrl}" class="img-fluid rounded-start" alt="${dog.name}">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h2 class="card-title">${dog.name}</h2>
+                                <p class="card-text">${dog.description}</p>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item"><strong>Breed:</strong> ${dog.breed.name}</li>
+                                    <li class="list-group-item"><strong>Age:</strong> ${dog.age} years</li>
+                                    <li class="list-group-item"><strong>Gender:</strong> ${dog.gender}</li>
+                                    <li class="list-group-item"><strong>Buy Price:</strong> $<fmt:formatNumber value="${dog.buyPrice}" pattern="#,##0.00"/></li>
+                                    <li class="list-group-item"><strong>Vaccinated:</strong> ${dog.vaccinated ? 'Yes' : 'No'}</li>
+                                    <li class="list-group-item"><strong>Owner:</strong> ${dog.owner.name}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-3 text-center">
+                    <a href="/dog/edit?dogId=${dog.id}" class="btn btn-primary">Edit</a>
+                    <a href="/order/addToCart?dogId=${dog.id}" class="btn btn-primary">Buy</a>
+                    <a href="/" class="btn btn-secondary">Back to List</a>
+                </div>
+            </div>
         </div>
     </div>
-    <a href="/dog/index" class="btn btn-primary mt-3">Back to Dog List</a>
-</div>
+</section>
 
 <jsp:include page="../include/footer.jsp" />
-
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-</html>

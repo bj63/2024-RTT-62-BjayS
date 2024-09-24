@@ -31,16 +31,19 @@
                     <a class="nav-link text-center" aria-current="page" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-center" href="/dogs">Dogs</a>
+                    <a class="nav-link" href="/search">Breeds</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-center" href="${pageContext.request.contextPath}/user/create">Create User</a>
+                    <a class="nav-link text-center" href="${pageContext.request.contextPath}/owner/create">Create Owner</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-center" href="${pageContext.request.contextPath}/dog/create">Create Dog</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-center" href="/profile">Profile</a>
+                    <a class="nav-link" href="/file-upload">File Upload</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/account/create-account">Create Account</a>
                 </li>
                 <sec:authorize access="!isAuthenticated()">
                     <li class="nav-item">
@@ -62,6 +65,10 @@
                 </sec:authorize>
 
             </ul>
+            <form class="d-flex ms-auto" action="/search" method="get" style="flex-grow: 1; max-width: 400px;">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="query">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
         </div>
     </div>
 </nav>

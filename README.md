@@ -1,4 +1,4 @@
-# 🎴 Trading Card Collection Platform 🎴
+# 🎴 Trading Card Collection Platform Cards Coming Soon 🎴
 
 This project is a web-based platform for managing trading card collections. It includes features like user authentication, card searching, and administrative controls for card management.
 

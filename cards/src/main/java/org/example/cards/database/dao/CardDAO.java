@@ -3,14 +3,14 @@ package org.example.cards.database.dao;
 import org.example.cards.database.entity.Card;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository
+
 public interface CardDAO extends JpaRepository<Card, Long> {
 
-    Card findById(Integer id);
+    Card findByCardId(Integer cardId);
+
 
     @Query("SELECT c FROM Card c WHERE " +
             "c.cardNumber = :search OR " +
@@ -31,6 +31,6 @@ public interface CardDAO extends JpaRepository<Card, Long> {
     // You might want to add a method to find a card by its unique card number
     Card findByCardNumber(String cardNumber);
 
-    void deleteById(Integer cardId);
+    void deleteByCardId(Integer cardId);
 
 }

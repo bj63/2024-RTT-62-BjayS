@@ -19,9 +19,6 @@ public class OrderDetail {
     @Column(name = "order_id", insertable = false, updatable = false)
     private Integer orderID;
 
-    @Column(name = "card_id", insertable = false, updatable = false)
-    private Integer cardID;
-
     @Column(name = "quantity_ordered")
     private Integer quantityOrdered;
 

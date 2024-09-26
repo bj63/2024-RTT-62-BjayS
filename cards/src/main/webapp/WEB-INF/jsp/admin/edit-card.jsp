@@ -18,7 +18,8 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <form action="${pageContext.request.contextPath}/admin/editCard" method="post" enctype="multipart/form-data">
-                    <input type="hidden" name="id" value="${form.id}">
+                    <input type="hidden" name="cardId" value="${form.cardId}">
+                    <input type="hidden" name="imageUrl" value="${form.imageUrl}"/>
 
                     <c:if test="${not empty errorMessage}">
                         <div class="alert alert-danger">
@@ -29,6 +30,10 @@
                     <div class="mb-3">
                         <label for="playerName" class="form-label">Player Name</label>
                         <input type="text" class="form-control" id="playerName" name="playerName" value="${form.playerName}" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="cardNumber" class="form-label">Jersey Number </label>
+                        <input type="number" class="form-control" id="cardNumber" name="cardNumber" value="${form.cardNumber}" required>
                     </div>
                     <div class="mb-3">
                         <label for="teamName" class="form-label">Team</label>
@@ -44,7 +49,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="image" class="form-label">Image</label>
-                        <input type="file" class="form-control" id="image" name="image">
+                        <input type="file" value="${form.image}" class="form-control" id="image" name="image">
                     </div>
                     <button type="submit" class="btn btn-light">Update Card</button>
                 </form>

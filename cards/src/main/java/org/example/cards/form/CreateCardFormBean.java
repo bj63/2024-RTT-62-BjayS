@@ -14,7 +14,7 @@ public class CreateCardFormBean {
 
     // This will be populated when editing a card
     // It will be null if this is a create card
-    private Integer id;
+    private Integer cardId;
 
     @NotEmpty(message = "Card number is required")
     private String cardNumber;
@@ -28,11 +28,10 @@ public class CreateCardFormBean {
     @NotNull(message = "Price is required")
     private Double buyPrice;
 
-    @NotEmpty(message = "Image URL is required")
     private String imageUrl;
 
     private Integer availableCopies;
 
-    private MultipartFile imageFile;
+    private MultipartFile image;
 
 }

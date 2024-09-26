@@ -77,7 +77,7 @@ public class UserController {
 
         List<Card> cards = new ArrayList<>();
         for (TradedCard tradedCard : tradedCards) {
-            Card card = cardDao.findById(tradedCard.getCardId());
+            Card card = cardDao.findByCardId(tradedCard.getCardId());
             cards.add(card);
         }
 
@@ -95,7 +95,7 @@ public class UserController {
 
         TradedCard tradedCard = tradedCardDao.findByTradeId(tradeId);
         if (tradedCard != null) {
-            Card card = cardDao.findById(tradedCard.getCardId());
+            Card card = cardDao.findByCardId(tradedCard.getCardId());
             card.setAvailableCopies(card.getAvailableCopies() + 1);
             cardDao.save(card);
             tradedCardDao.delete(tradedCard);
@@ -113,7 +113,7 @@ public class UserController {
         String username = principal.getName();
         User user = userDao.findByEmailIgnoreCase(username);
 
-        Card card = cardDao.findById(cardId);
+        Card card = cardDao.findByCardId(cardId);
         log.info("Card found: {}", card);
 
         if (card != null && card.getAvailableCopies() > 0) {

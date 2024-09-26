@@ -1,95 +1,154 @@
-<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
 <!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Side Navigation Bar</title>
 
+    <!-- Google Fonts and Stylesheets -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100..900&display=swap" rel="stylesheet">
 
     <link href="/pub/css/global.css" rel="stylesheet">
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <!-- Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 
+    <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        /* Custom side navbar styling */
+        .side-nav {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+            z-index: 1000; /* Ensure sidebar is above other content */
+        }
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        .side-nav a {
+            width: 200px; /* Adjust as needed */
+            flex-shrink: 0;
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 22px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
 
+        .side-nav a:hover {
+            color: #f1f1f1;
+        }
+
+        .side-nav .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        /* Button to open the side navbar */
+        .open-btn {
+            font-size: 20px;
+            cursor: pointer;
+            background-color: #111;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            z-index: 1001; /* Ensure button is above sidebar */
+        }
+
+        /* Main content styling */
+        .main-content {
+            flex-grow: 1;
+            padding-left: 20px; /* Add space between side menu and content */
+            box-sizing: border-box;
+
+        }
+
+        .side-nav.closed + .main-content {
+            margin-left: 0;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .side-nav {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+
+            .side-nav.closed {
+                width: 0;
+            }
+
+            .main-content {
+                flex-grow: 1;
+                padding-left: 20px; /* Add space between side menu and content */
+                box-sizing: border-box;            }
+        }
+    </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-light navbar-custom raleway-normal">
-    <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link text-white" aria-current="page" href="/">HOME</a>
-                </li>
-                <sec:authorize access="!isAuthenticated()">
-                    <li class="nav-item">
-                        <a class="nav-link text-white" aria-current="page" href="/user/loginPageUrl">LOG IN</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" aria-current="page" href="/user/create-user">CREATE ACCOUNT</a>
-                    </li>
-                </sec:authorize>
 
-                <li class="nav-item">
-                    <a class="nav-link text-white" aria-current="page" href="/card/search">SEARCH</a>
-                </li>
+<!-- Button to open the side navbar -->
+<button class="open-btn" onclick="openNav()">☰ Open Side Menu</button>
 
-                <sec:authorize access="hasAnyAuthority('ADMIN')">
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="/admin/editCardSearch">Edit Cards</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="/admin/userSearch">Edit Users</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="/admin/dashboard">Admin Dashboard</a>
-                    </li>
-                </sec:authorize>
+<!-- Side Navbar -->
+<div id="mySidenav" class="side-nav">
+    <a href="javascript:void(0)" class="close-btn" onclick="closeNav()">&times;</a>
 
-                <sec:authorize access="isAuthenticated()">
-                    <li class="nav-item">
-                        <a class="nav-link text-white" href="/user/collections">My Collections</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" aria-current="page" href="/user/detail">My Account</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white" aria-current="page" href="/login/logout">LOG OUT</a>
-                    </li>
-                </sec:authorize>
+    <a href="/">Home</a>
+    <sec:authorize access="!isAuthenticated()">
+        <a href="/user/loginPageUrl">Log In</a>
+        <a href="/user/create-user">Create Account</a>
+    </sec:authorize>
 
-            </ul>
+    <a href="/card/search">Search Cards</a>
 
-            <ul class="navbar-nav ms-auto">
-                <sec:authorize access="isAuthenticated()">
-                    <li class="nav-item">
-                        <span class="nav-link text-white">Hi, <sec:authentication property="name"/></span>
-                    </li>
-                </sec:authorize>
-            </ul>
+    <sec:authorize access="hasAnyAuthority('ADMIN')">
+        <a href="/admin/editCardSearch">Edit Cards</a>
+        <a href="/admin/userSearch">Edit Users</a>
+        <a href="/admin/dashboard">Admin Dashboard</a>
+    </sec:authorize>
 
-        </div>
-    </div>
-</nav>
+    <sec:authorize access="isAuthenticated()">
+        <a href="/user/collections">My Collections</a>
+        <a href="/user/detail">My Account</a>
+        <a href="/login/logout">Log Out</a>
+    </sec:authorize>
+</div>
+
+<!-- Main Content Area -->
+<div class="main-content">
+    <!-- Page-specific content goes here -->
+    <!-- Include page-specific JSP content here -->
+</div>
+
+<!-- JavaScript to toggle the navbar -->
+<script>
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+    }
+</script>
+
 </body>
 </html>

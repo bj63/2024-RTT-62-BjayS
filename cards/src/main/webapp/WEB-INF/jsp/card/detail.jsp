@@ -17,7 +17,7 @@
         <div class="row justify-content-center custom-section raleway-normal">
             <!-- Column for the cover image -->
             <div class="col-md-4 d-flex align-items-center">
-                <img src="${card.imageUrl}" alt="Card Image" class="img-fluid"/>
+                <img src="${card.imageUrl}" alt="Card Image" class="img-fluid" />
             </div>
 
             <!-- Column for the details -->
@@ -25,28 +25,32 @@
                 <table class="table" style="color: white;">
                     <tr>
                         <td style="font-weight: bolder;">Card ID:</td>
-                        <td>${card.id}</td>
+                        <td>${card.cardId}</td>
                     </tr>
                     <tr>
                         <td style="font-weight: bolder;">Player Name:</td>
                         <td>${card.playerName}</td>
                     </tr>
                     <tr>
+                        <td style="font-weight: bolder;">Player Jersey #:</td>
+                        <td>${card.cardNumber}</td>
+                    </tr>
+                    <tr>
                         <td style="font-weight: bolder;">Team:</td>
                         <td>${card.teamName}</td>
                     </tr>
                     <tr>
-                        <td style="font-weight: bolder;">Price:</td>
-                        <td>${card.buyPrice}</td>
+                        <td style="font-weight: bolder;">Buy Price:</td>
+                        <td><fmt:formatNumber value="${card.buyPrice}" type="currency" /></td>
                     </tr>
                     <tr>
                         <td style="font-weight: bolder;">Available Copies:</td>
                         <td>${card.availableCopies}</td>
                     </tr>
                     <tr>
-                        <td colspan="2">
-                            <form action="/user/trade" method="post" class="text-center">
-                                <input type="hidden" name="cardId" value="${card.id}">
+                        <td colspan="2" class="text-center">
+                            <form action="/user/trade" method="post">
+                                <input type="hidden" name="cardId" value="${card.cardId}">
                                 <button type="submit" class="btn btn-light">Trade</button>
                             </form>
                         </td>
@@ -58,5 +62,3 @@
 </section>
 
 <jsp:include page="../include/footer.jsp" />
-
-

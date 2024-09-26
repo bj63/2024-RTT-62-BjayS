@@ -11,12 +11,13 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
-@Service
+
+
 @Slf4j
+@Service
 @Component
 public class CardService {
 
@@ -28,36 +29,32 @@ public class CardService {
 
     @Transactional
     public void deleteCardById(Integer cardId) {
-        // First, delete related orderdetails
-        orderDetailsDao.deleteByCardId(cardId);
-
-        // Then, delete the card
-        cardDao.deleteById(cardId);
+        orderDetailsDao.deleteByCard_CardId(cardId);
+        cardDao.deleteByCardId(cardId);
     }
 
-    @Transactional
-    public Card createCard(CreateCardFormBean form, MultipartFile image) {
-
+    public Card createCard(CreateCardFormBean form) {
         Card card = new Card();
         card.setCardNumber(form.getCardNumber());
         card.setPlayerName(form.getPlayerName());
         card.setTeamName(form.getTeamName());
         card.setBuyPrice(form.getBuyPrice());
+        card.setAvailableCopies(form.getAvailableCopies());
 
-        String saveFilename = "./src/main/webapp/pub/image/" + image.getOriginalFilename();
-
+        String saveFilename = "./src/main/webapp/pub/image/" + form.getImage().getOriginalFilename();
         try {
-            Files.copy(image.getInputStream(), Paths.get(saveFilename), StandardCopyOption.REPLACE_EXISTING);
-        } catch (IOException e) {
-            log.error("Unable to finish reading file", e);
-            // Handle the exception appropriately (e.g., rethrow it or handle it gracefully)
+            Files.copy(form.getImage().getInputStream(), Paths.get(saveFilename), StandardCopyOption.REPLACE_EXISTING);
+        } catch (Exception e) {
+            log.error("Unable to save image file", e);
+            throw new RuntimeException("Failed to save image file", e);
         }
 
-        String url = "/pub/image/" + image.getOriginalFilename();
+        String url = "/pub/image/" + form.getImage().getOriginalFilename();
         card.setImageUrl(url);
 
         cardDao.save(card);
-
         return card;
     }
 }
+
+

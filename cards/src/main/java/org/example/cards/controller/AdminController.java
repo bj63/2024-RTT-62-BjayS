@@ -16,24 +16,32 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import java.nio.file.StandardCopyOption;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
 
 @Slf4j
 @Controller
 @RequestMapping("/admin")
-@PreAuthorize(value = "hasAuthority('ADMIN')")
+@PreAuthorize("hasAuthority('ADMIN')")
 public class AdminController {
 
-    @Autowired
-    private UserDAO userDao;
+
 
     @Autowired
     private CardDAO cardDao;
 
     @Autowired
+    private UserDAO userDao;
+
+    @Autowired
     private CardService cardService;
 
+
+    // Admin dashboard to view all cards
     @GetMapping("/dashboard")
     public ModelAndView dashboard() {
         ModelAndView response = new ModelAndView("admin/dashboard");
@@ -41,7 +49,7 @@ public class AdminController {
         response.addObject("cards", cards);
         return response;
     }
-
+    // GET mapping to display the form to create a card
     @GetMapping("/createCard")
     public ModelAndView createCardForm() {
         ModelAndView response = new ModelAndView("admin/create-card");
@@ -49,39 +57,35 @@ public class AdminController {
         return response;
     }
 
+    // POST mapping to handle form submission for creating a card
     @PostMapping("/createCard")
-    public ModelAndView createCardSubmit(@Valid @ModelAttribute("form") CreateCardFormBean form, BindingResult bindingResult, @RequestParam("image") MultipartFile image) {
+    public ModelAndView createCardSubmit(@Valid CreateCardFormBean form, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             ModelAndView response = new ModelAndView("admin/create-card");
             response.addObject("form", form);
             return response;
         }
 
-        try {
-            cardService.createCard(form, image);
-        } catch (Exception e) {
-            log.error("Error creating card", e);
-            ModelAndView response = new ModelAndView("admin/create-card");
-            response.addObject("form", form);
-            response.addObject("errorMessage", "An error occurred while creating the card.");
-            return response;
-        }
+        cardService.createCard(form);
         return new ModelAndView("redirect:/admin/dashboard");
     }
 
+    // GET mapping to edit an existing card by its id
     @GetMapping("/editCard")
     public ModelAndView editCard(@RequestParam Integer cardId) {
         ModelAndView response = new ModelAndView("admin/edit-card");
 
-        Card card = cardDao.findById(cardId);
+        Card card = cardDao.findByCardId(cardId);
 
         if (card != null) {
             CreateCardFormBean form = new CreateCardFormBean();
-            form.setId(card.getId());
+            form.setCardId(card.getCardId());
             form.setCardNumber(card.getCardNumber());
             form.setPlayerName(card.getPlayerName());
             form.setTeamName(card.getTeamName());
             form.setBuyPrice(card.getBuyPrice());
+            form.setAvailableCopies(card.getAvailableCopies());
+
 
             response.addObject("form", form);
             response.addObject("card", card);
@@ -91,8 +95,9 @@ public class AdminController {
         return response;
     }
 
+    // POST mapping to handle form submission for editing a card
     @PostMapping("/editCard")
-    public ModelAndView editCardSubmit(@Valid CreateCardFormBean form, BindingResult bindingResult, @RequestParam(value = "image", required = false) MultipartFile image) {
+    public ModelAndView editCardSubmit(@Valid CreateCardFormBean form, BindingResult bindingResult, MultipartFile image) {
         ModelAndView response = new ModelAndView("admin/edit-card");
 
         if (bindingResult.hasErrors()) {
@@ -100,25 +105,41 @@ public class AdminController {
             return response;
         }
 
-        try {
-            Card card = cardService.createCard(form, image);
-            response.setViewName("redirect:/card/detail/" + card.getId());
-        } catch (Exception e) {
-            log.error("Error updating card", e);
-            response.addObject("errorMessage", "An error occurred while updating the card.");
+        Card card = cardDao.findByCardId(form.getCardId());
+        if (card != null) {
+            card.setCardNumber(form.getCardNumber());
+            card.setPlayerName(form.getPlayerName());
+            card.setTeamName(form.getTeamName());
+            card.setBuyPrice(form.getBuyPrice());
+            card.setAvailableCopies(form.getAvailableCopies());
+
+
+
+            String saveFilename = "./src/main/webapp/pub/image/" + image.getOriginalFilename();
+            try {
+                Files.copy(image.getInputStream(), Paths.get(saveFilename), StandardCopyOption.REPLACE_EXISTING);
+            } catch (Exception e) {
+                log.error("Unable to save image file", e);
+                throw new RuntimeException("Failed to save image file", e);
+            }
+
+            String url = "/pub/image/" + image.getOriginalFilename();
+            card.setImageUrl(url);
+
+            cardDao.save(card);
+            response.setViewName("redirect:/card/detail/" + card.getCardId());
         }
         return response;
     }
 
+
+
     @GetMapping("/cardSearch")
     public ModelAndView cardSearch(@RequestParam(required = false) String search) {
         ModelAndView response = new ModelAndView("admin/search-card");
-
         List<Card> cards = cardDao.searchCards(search);
-
         response.addObject("cards", cards);
         response.addObject("searchTerm", search);
-
         return response;
     }
 
@@ -132,10 +153,7 @@ public class AdminController {
         return new ModelAndView("redirect:/admin/dashboard");
     }
 
-
-
-
-    @GetMapping("/userSearch")
+@GetMapping("/userSearch")
     public ModelAndView userSearch(@RequestParam(required = false) String search, @RequestParam(required = false) Integer searchId) {
         ModelAndView response = new ModelAndView("admin/search-user");
 

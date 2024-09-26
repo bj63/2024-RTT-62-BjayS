@@ -62,7 +62,7 @@ public class OrderController {
         ModelAndView response = new ModelAndView();
 
         // first we can look up the card in the database given the incoming cardId
-        Card card = cardDAO.findById(cardId);
+        Card card = cardDAO.findByCardId(cardId);
 
         // get the logged in user
         User user = authenticatedUserUtilities.getCurrentUser();

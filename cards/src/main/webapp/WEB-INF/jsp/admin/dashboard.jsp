@@ -36,15 +36,15 @@
                         <tbody>
                         <c:forEach items="${cards}" var="card">
                             <tr>
-                                <td>${card.id}</td>
+                                <td>${card.cardId}</td>
                                 <td>${card.playerName}</td>
                                 <td>${card.teamName}</td>
                                 <td>${card.buyPrice}</td>
                                 <td>${card.availableCopies}</td>
                                 <td>
-                                    <a href="${pageContext.request.contextPath}/admin/editCard?cardId=${card.id}" class="btn btn-light">Edit</a>
+                                    <a href="${pageContext.request.contextPath}/admin/editCard?cardId=${card.cardId}" class="btn btn-light">Edit</a>
                                     <form action="${pageContext.request.contextPath}/admin/deleteCard" method="post" style="display:inline;">
-                                        <input type="hidden" name="cardId" value="${card.id}" />
+                                        <input type="hidden" name="cardId" value="${card.cardId}" />
                                         <button type="submit" onclick="return confirm('Are you sure you want to delete this card?');" class="btn btn-danger btn-sm">Delete</button>
                                     </form>
                                 </td>

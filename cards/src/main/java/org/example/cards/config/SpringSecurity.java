@@ -32,7 +32,7 @@ public class SpringSecurity {
        http.authorizeRequests()
                .requestMatchers(
                       new AntPathRequestMatcher("/admin/**")).authenticated()
-  //                    new AntPathRequestMatcher("/user/**")).authenticated()
+  //                   new AntPathRequestMatcher("/user/**")).authenticated()
                 .anyRequest().permitAll();
 
 

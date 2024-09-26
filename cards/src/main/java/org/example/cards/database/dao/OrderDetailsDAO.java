@@ -9,6 +9,7 @@ public interface OrderDetailsDAO extends JpaRepository<OrderDetail, Integer> {
     @Query(value = "select * from orderdetails where order_id = :orderId and card_id = :cardId", nativeQuery = true)
     OrderDetail isCardInCart(Integer orderId, Integer cardId);
 
-    void deleteByCardId(Integer cardId);
 
+    // Update method to use the correct field name 'cardId'
+    void deleteByCard_CardId(Integer cardId);
 }
